@@ -6,7 +6,7 @@ import NumberPhone from "./components/numberPhone";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { FcSearch } from "react-icons/fc";
-
+import { Button, Drawer } from "antd";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
@@ -19,6 +19,15 @@ export default function Home() {
       setLoading(false);
     });
   }, []);
+  const [open, setOpen] = useState(false);
+
+  const showDrawer = () => {
+    setOpen(true);
+  };
+
+  const onClose = () => {
+    setOpen(false);
+  };
   return (
     <>
       <Head>
@@ -28,11 +37,29 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="relative">
-        <div className="w-100 h-[420px] bg-[#4BE1BA]">
-          <img
+        <div className="w-100 h-[500px] ml-auto bg-[#4BE1BA]">
+          <Button
+            type="primary"
+            className="w-[80px] p-0 h-[80px]"
+            onClick={showDrawer}
+          >
+            <p className="text-[35px] text-black">≡</p>
+          </Button>
+          <Image
+            alt="logo"
             src="https://static.callblocker.org/img/logo.png"
             className="mx-auto pt-[60px] w-[200px]"
           />
+          <Drawer
+            title="Basic Drawer"
+            placement="right"
+            onClose={onClose}
+            open={open}
+          >
+            <a>Some contents...</a>
+            <p>Some contents...</p>
+            <p>Some contents...</p>
+          </Drawer>
           <p className="text-center leading-none font-Raleway font-semibold text-[35px] text-[#FFF8F8] ">
             Anti-Call Spam Apps: Protecting Your Mobile Phone from Nuisance
             Calls and Scams
@@ -89,7 +116,7 @@ export default function Home() {
             also help you to manage your calls more effectively. With features
             like call blocking and call identification, you can control which
             calls you receive, and who you receive them from. This means that
-            you can block calls from numbers that you don't want to receive
+            you can block calls from numbers that you don&apos;t want to receive
             calls from, and allow calls from numbers that you do want to receive
             calls from.
           </p>

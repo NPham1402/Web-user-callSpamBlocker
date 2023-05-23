@@ -1,3 +1,4 @@
+import { ClockCircleOutlined } from "@ant-design/icons";
 import React from "react";
 
 export default function MiniCompoent(props) {
@@ -31,9 +32,37 @@ export default function MiniCompoent(props) {
           </div>
         </footer>
       )}
+
+      {props.types === "noti" && (
+        <div className="bg-[#808080] m-auto rounded-[12px] w-[400px] h-[95px]">
+          <div className=" h-full px-auto">
+            <p className="text-[30px] font-bold  text-center ">
+              {" "}
+              {props.headerLine}
+            </p>
+            <p className="text-center text-white text-[25px] font-semibold">
+              {props.contents}
+            </p>
+          </div>
+        </div>
+      )}
       {props.types === "comments" && (
         <>
-          <div></div>
+          <div className="w-[45%] h-[183.5px] mx-[10px] mt-[30px] border-[1px] border-white rounded-2xl border  bg-[#c1c1c1]">
+            <div className="m-[30px]">
+              <div className="flex flex-row ">
+                <ClockCircleOutlined className="text-[30px] m-[10px]" />
+                <p className="pt-[10px] text-[#004948] font-semibold text-[25px] ">
+                  {props.number}/({props.hourse} ago)
+                </p>
+              </div>
+              <div className="flex flex-row">
+                <p className="text-[20px] text-[#004948] m-[10px] font-bold">
+                  {props.comment}
+                </p>
+              </div>
+            </div>
+          </div>
         </>
       )}
     </>

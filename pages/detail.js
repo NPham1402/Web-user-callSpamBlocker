@@ -4,7 +4,8 @@ import { useRouter } from "next/router";
 import React, { useEffect } from "react";
 import { FcSearch } from "react-icons/fc";
 import MiniCompoent from "./components/miniCompoent";
-function detail() {
+import Image from "next/image";
+function Detail() {
   const router = useRouter();
   const {
     query: { id },
@@ -23,7 +24,8 @@ function detail() {
       </Head>
       <main className="relative">
         <div className="w-100 pl-[10px] pt-[2px] flex flex-row h-[50px] bg-[#4BE1BA]">
-          <img
+          <Image
+            alt="logo"
             src="https://static.callblocker.org/img/logo.png"
             className=" w-[35px] h-[40px]"
           />
@@ -66,13 +68,48 @@ function detail() {
             contents="3326652656"
           />
         </div>
+        <div className="w-[98%]  pl-[15px] flex flex-row  ">
+          <MiniCompoent
+            types="noti"
+            headerLine="Number Phone:"
+            contents="3326652656"
+          />
+          <MiniCompoent
+            types="noti"
+            headerLine="Number Phone:"
+            contents="3326652656"
+          />
+          <MiniCompoent
+            types="noti"
+            headerLine="Number Phone:"
+            contents="3326652656"
+          />
+        </div>
         <p className=" font-medium text-[30px] text-left pl-[25px] text-[#221f49] ">
           Comments
         </p>
+        <MiniCompoent
+          types="comments"
+          number="0938224718"
+          hourse="3 hourse  "
+          comment="nhuw cc lol"
+        />
+        <MiniCompoent
+          types="comments"
+          number="0938224718"
+          hourse="3 hourse  "
+          comment="nhuw cc lol"
+        />
+        <MiniCompoent
+          types="comments"
+          number="0938224718"
+          hourse="3 hourse  "
+          comment="nhuw cc lol"
+        />
       </main>
       <MiniCompoent types="footer" />
     </>
   );
 }
 
-export default detail;
+export default Detail;
