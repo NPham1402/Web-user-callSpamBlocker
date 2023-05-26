@@ -6,28 +6,13 @@ import NumberPhone from "./components/numberPhone";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { FcSearch } from "react-icons/fc";
-import { Button, Drawer } from "antd";
+import urlImg from "../public/logo.png";
+import AutoCompleteComponent from "./components/AutoComplete";
+import Top50Component from "./components/Top50Component";
+
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
-  const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(true);
-  useEffect(() => {
-    axios.get("http://localhost:3000/api/getnumber").then((value) => {
-      console.log(value.data);
-      setData(value.data);
-      setLoading(false);
-    });
-  }, []);
-  const [open, setOpen] = useState(false);
-
-  const showDrawer = () => {
-    setOpen(true);
-  };
-
-  const onClose = () => {
-    setOpen(false);
-  };
   return (
     <>
       <Head>
@@ -38,19 +23,21 @@ export default function Home() {
       </Head>
       <main className="relative">
         <div className="w-100 h-[500px] ml-auto bg-[#4BE1BA]">
-          <Button
+          {/* <Button
             type="primary"
             className="w-[80px] p-0 h-[80px]"
             onClick={showDrawer}
           >
             <p className="text-[35px] text-black">≡</p>
-          </Button>
+          </Button> */}
           <Image
             alt="logo"
-            src="https://static.callblocker.org/img/logo.png"
+            width={300}
+            height={300}
+            src={urlImg}
             className="mx-auto pt-[60px] w-[200px]"
           />
-          <Drawer
+          {/* <Drawer
             title="Basic Drawer"
             placement="right"
             onClose={onClose}
@@ -59,17 +46,13 @@ export default function Home() {
             <a>Some contents...</a>
             <p>Some contents...</p>
             <p>Some contents...</p>
-          </Drawer>
+          </Drawer> */}
           <p className="text-center leading-none font-Raleway font-semibold text-[35px] text-[#FFF8F8] ">
             Anti-Call Spam Apps: Protecting Your Mobile Phone from Nuisance
             Calls and Scams
           </p>
-          <div className="flex flex-row p-[10px] rounded-[6px] text-center   w-[500px] h-[50px] mx-auto mt-[15px] bg-white">
-            <input
-              className="w-full h-full outline-none cursor-pointer"
-              placeholder="Search phone number..."
-            />
-            <FcSearch className="text-[30px]" />
+          <div className=" rounded-[6px] text-center   w-[500px]  mx-auto mt-[15px] bg-white">
+            <AutoCompleteComponent />
           </div>
         </div>
         <div className="font px-[50px]">
@@ -158,17 +141,7 @@ export default function Home() {
             The newest number phone spam
           </p>
           <div className="flex flex-row flex-wrap justify-center">
-            {loading === false &&
-              data.map((value) => (
-                <NumberPhone
-                  zone={value.zone}
-                  country={value.country}
-                  numberPhone={value.phone_number}
-                  provider={value.provider}
-                  key={value._id}
-                  id={value._id}
-                />
-              ))}
+            <Top50Component />
           </div>
         </div>
       </main>

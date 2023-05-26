@@ -6,10 +6,10 @@ export default function MiniCompoent(props) {
     <>
       {props.types == "line" && (
         <div className="flex flex-row">
-          <p className="text-[25px] font-semibold ml-[10px] my-auto align-text-bottom">
+          <p className="text-[25px] w-[200px] text-[#bfc3c9] font-semibold ml-[10px] my-auto align-text-bottom">
             {props.headerLine}
           </p>
-          <p className="text-[35px] m-auto font-bold text-[white] ">
+          <p className="text-[35px] m-auto font-bold text-black text-[white] ">
             {props.contents}
           </p>
         </div>
@@ -34,7 +34,7 @@ export default function MiniCompoent(props) {
       )}
 
       {props.types === "noti" && (
-        <div className="bg-[#808080] m-auto rounded-[12px] w-[400px] h-[95px]">
+        <div className="bg-[#bfc3c9] m-auto rounded-[12px] w-[400px] h-[95px]">
           <div className=" h-full px-auto">
             <p className="text-[30px] font-bold  text-center ">
               {" "}
@@ -53,7 +53,7 @@ export default function MiniCompoent(props) {
               <div className="flex flex-row ">
                 <ClockCircleOutlined className="text-[30px] m-[10px]" />
                 <p className="pt-[10px] text-[#004948] font-semibold text-[25px] ">
-                  {props.number}/({props.hourse} ago)
+                  {props.number}/({props.hourse})
                 </p>
               </div>
               <div className="flex flex-row">
