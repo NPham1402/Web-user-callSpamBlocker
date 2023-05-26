@@ -106,6 +106,7 @@ function Detail() {
                   number={value.title}
                   hourse={dayjs(value.reportDate).format("DD-MM-YYYY")}
                   comment={value.content}
+                  key={index}
                 />
               ))}
             </div>
