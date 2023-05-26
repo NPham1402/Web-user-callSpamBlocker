@@ -40,7 +40,7 @@ function Detail() {
         <link rel="icon" href="/public/logo.png" />
       </Head>
       <main className="relative">
-        <div className="w-100 pl-[10px] pt-[2px] flex flex-row h-[60px] bg-[#4BE1BA]">
+        <div className="w-100 pl-[10px] pt-[2px] flex flex-row justify-between h-[62px] bg-[#4BE1BA]">
           <Image
             alt="logo"
             width={60}
@@ -48,12 +48,10 @@ function Detail() {
             src={urlImg}
             className="my-auto"
           />
-          <p className="pl-[5px] pt-[6px] mt-[10px] mb-auto mr-[5px] leading-none font-Raleway font-bold text-[25px] text-[#FFF8F8] ">
-            CheckCallSpammer
-          </p>
-          <div className="flex flex-row  rounded-[6px] my-auto  w-[300px] ">
+          <div className="flex flex-row border-5 border-black rounded-[6px] my-auto  w-[500px] ">
             <AutoCompleteComponent />
           </div>
+          <p className="text-[#4BE1BA]">adcd</p>
         </div>
         <p className=" font-bold text-[50px] text-center text-[#221f49] ">
           About this number
@@ -61,7 +59,7 @@ function Detail() {
 
         {loading === false ? (
           <div>
-            <div className="w-[98%] my-[15px] rounded-[16px]    mx-auto">
+            <div className="w-[98%] my-[15px] rounded-[16px]  bg-[#bfc3c9]  mx-auto">
               <MiniCompoent
                 types="line"
                 headerLine="Number Phone:"
@@ -112,7 +110,9 @@ function Detail() {
             </div>
           </div>
         ) : (
-          <CircularProgress />
+          <div className="text-center">
+            <CircularProgress />
+          </div>
         )}
         <p className="font-medium text-[50px] text-center text-[#221f49]  pt-[25px]">
           The suggest phone

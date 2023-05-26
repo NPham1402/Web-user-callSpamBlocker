@@ -5,13 +5,18 @@ export default function MiniCompoent(props) {
   return (
     <>
       {props.types == "line" && (
-        <div className="flex flex-row">
-          <p className="text-[25px] w-[200px] text-[#bfc3c9] font-semibold ml-[10px] my-auto align-text-bottom">
+        <div className="flex flex-row justify-between">
+          <p className="text-[25px] w-[200px] text-white ml-[5px] font-semibold my-auto ">
             {props.headerLine}
           </p>
-          <p className="text-[35px] m-auto font-bold text-black text-[white] ">
+          <p
+            className={
+              "text-[35px] pr-[180px] font-bold text-black text-[white] "
+            }
+          >
             {props.contents}
           </p>
+          <p className=" text-[#bfc3c9]">nj</p>
         </div>
       )}
       {props.types === "footer" && (
@@ -49,7 +54,7 @@ export default function MiniCompoent(props) {
       {props.types === "comments" && (
         <div
           key={props.key}
-          className="w-[45%] h-[183.5px] mx-[10px] mt-[30px] border-[1px] border-white rounded-2xl border  bg-[#c1c1c1]"
+          className="w-[45%] h-[183.5px] mx-[10px] mt-[30px] border-[1px] border-white rounded-2xl border  bg-[#bfc3c9]"
         >
           <div className="m-[30px]">
             <div className="flex flex-row ">
@@ -59,8 +64,8 @@ export default function MiniCompoent(props) {
               </p>
             </div>
             <div className="flex flex-row">
-              <p className="text-[20px] text-[#004948] m-[10px] font-bold">
-                {props.comment}
+              <p className="text-[25px] text-[#004948] m-[10px] font-bold">
+                {"Content: " + props.comment}
               </p>
             </div>
           </div>
