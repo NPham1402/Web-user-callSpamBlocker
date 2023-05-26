@@ -13,9 +13,14 @@ function AutoCompleteComponent(props) {
     if (value === "") value = 0;
 
     axios
-      .get("http://localhost:8000/phone-numbers/" + value + "/suggest/1", {
-        headers: { authorization: "spambl0ckerAuthorization2k1rbyp0wer" },
-      })
+      .get(
+        "https://api.call-spam-blocker.xyz/phone-numbers/" +
+          value +
+          "/suggest/1",
+        {
+          headers: { authorization: "spambl0ckerAuthorization2k1rbyp0wer" },
+        }
+      )
       .then((data) => {
         const items = data.data;
         console.log(items);

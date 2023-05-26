@@ -21,7 +21,7 @@ function Detail() {
     setLoading(true);
     if (id) {
       axios
-        .get("http://localhost:8000/phone-numbers/detail/" + id, {
+        .get("https://api.call-spam-blocker.xyz/phone-numbers/detail/" + id, {
           headers: { authorization: "spambl0ckerAuthorization2k1rbyp0wer" },
         })
         .then((data) => {
