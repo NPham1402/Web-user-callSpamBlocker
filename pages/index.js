@@ -36,7 +36,7 @@ export default function Home() {
         />
         <meta property="og:type" content="website" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="https://i.ibb.co/58bNmGc/logo.png" />
+        <link rel="icon" href="/public/logo.png" />
       </Head>
       <main className="relative">
         <div className="w-100 h-[500px] ml-auto bg-[#4BE1BA]">
