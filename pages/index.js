@@ -31,7 +31,7 @@ export default function Home() {
         />
         <meta
           property="og:url"
-          content="call-spam-blocker.xyz
+          content="callspamblocker.online
 "
         />
         <meta property="og:type" content="website" />
