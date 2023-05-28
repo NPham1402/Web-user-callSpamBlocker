@@ -9,8 +9,8 @@ import { FcSearch } from "react-icons/fc";
 import urlImg from "../public/logo.png";
 import AutoCompleteComponent from "./components/AutoComplete";
 import Top50Component from "./components/Top50Component";
+import News from "./components/News";
 
-const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
   return (
@@ -158,6 +158,11 @@ export default function Home() {
           </p>
           <div className="flex flex-row flex-wrap justify-center">
             <Top50Component />
+          </div>
+              <p className="font-medium text-[50px] text-center text-[#221f49]  pt-[25px]">
+New         </p>
+          <div className="flex flex-row flex-wrap justify-center">
+          <News/>
           </div>
         </div>
       </main>

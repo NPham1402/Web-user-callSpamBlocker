@@ -1,4 +1,4 @@
-import { Autocomplete, Box, TextField, debounce } from "@mui/material";
+import { Autocomplete, Box, Chip, TextField, debounce } from "@mui/material";
 import axios from "axios";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
@@ -16,17 +16,17 @@ function AutoCompleteComponent(props) {
       .get(
         "https://api.call-spam-blocker.xyz/phone-numbers/" +
           value +
-          "/suggest/1",
+          "/suggest/3",
         {
           headers: { authorization: "spambl0ckerAuthorization2k1rbyp0wer" },
         }
       )
       .then((data) => {
         const items = data.data;
-        console.log(items);
         const suggestions = items.result.map((item) => ({
           id: item._id,
           label: item.phoneNumber,
+          status: item.status,
         }));
         setData(suggestions);
       });
@@ -51,7 +51,18 @@ function AutoCompleteComponent(props) {
           sx={{ "& > img": { mr: 2, flexShrink: 0 } }}
           {...props}
         >
-          +84 {option.label}
+          
+          <Chip
+            sx={{ marginLeft: "5px" }}
+            color={
+              option.status === "spammer"
+                ? "error"
+                : option.status === "potential-spammer"
+                ? "primary"
+                : "default"
+            }
+            label={option.status}
+          />
         </Box>
       )}
       onInputChange={handleInputChange}

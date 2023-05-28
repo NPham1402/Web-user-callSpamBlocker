@@ -11,7 +11,6 @@ export default function Top50Component() {
         headers: { authorization: "spambl0ckerAuthorization2k1rbyp0wer" },
       })
       .then((data) => {
-        console.log(data.data.result);
         setData(data.data.result);
         setLoading(false);
       });
