@@ -20,7 +20,6 @@ import {
   debounce,
 } from "@mui/material";
 import Top50Component from "./components/Top50Component";
-import postSlack from "./components/postSlack";
 function Detail() {
   const [data, setData] = useState(null);
 
