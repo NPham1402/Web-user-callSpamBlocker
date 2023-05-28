@@ -160,7 +160,7 @@ export default function Home() {
             <Top50Component />
           </div>
               <p className="font-medium text-[50px] text-center text-[#221f49]  pt-[25px]">
-New         </p>
+the News         </p>
           <div className="flex flex-row flex-wrap justify-center">
           <News/>
           </div>
