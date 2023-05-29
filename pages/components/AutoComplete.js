@@ -51,7 +51,7 @@ function AutoCompleteComponent(props) {
           sx={{ "& > img": { mr: 2, flexShrink: 0 } }}
           {...props}
         >
-          
+          <p className="font-bold">{option.label}</p>
           <Chip
             sx={{ marginLeft: "5px" }}
             color={

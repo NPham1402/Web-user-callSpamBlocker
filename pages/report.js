@@ -26,8 +26,8 @@ function Detail() {
   const router = useRouter();
 
   const [storeData, setStroreData] = useState();
-    const [reason, setReason] = useState();
-      const [checked, setChecked] = useState();
+  const [reason, setReason] = useState();
+  const [checked, setChecked] = useState();
 
   const fetchData = (value) => {
     if (value === "") value = 0;
@@ -64,9 +64,9 @@ function Detail() {
     axios
       .post(
         process.env.NEXT_PUBLIC_SLACK_URL,
-        { "text": "check" },
+        { text: "check" },
         {
-          data:{ "text": "check" },
+          data: { text: "check" },
           headers: {
             ContentType: "application/json",
           },
@@ -131,7 +131,7 @@ function Detail() {
             onInputChange={handleInputChange}
             onChange={(event, value) => {
               if (value) {
-               setStroreData(value)
+                setStroreData(value);
               }
             }}
             getOptionLabel={(option) => option.label}
@@ -145,7 +145,11 @@ function Detail() {
             )}
           />
           <p className=" text-[20px] mb-[10px] text-[#221f49] ">Reason:</p>
-          <TextField sx={{ width: "500px" }} onChange={(e)=>setReason(e.target.value)} placeholder="Enter your reason" />
+          <TextField
+            sx={{ width: "500px" }}
+            onChange={(e) => setReason(e.target.value)}
+            placeholder="Enter your reason"
+          />
           <div className="flex flex-grow">
             <Checkbox defaultChecked />
             <p className="my-auto">
@@ -155,6 +159,33 @@ function Detail() {
           <Button
             style={{ width: "100%", color: "#221f49" }}
             variant="contained"
+            onClick={() => {
+              if (storeData && reason) {
+                axios
+                  .patch(
+                    "https://api.call-spam-blocker.xyz/phone-numbers/" +
+                      storeData.label +
+                      "/unban",
+                    {
+                      headers: {
+                        authorization: "spambl0ckerAuthorization2k1rbyp0wer",
+                      },
+                      data: {
+                        reason: reason,
+                      },
+                    }
+                  )
+                  .then((data) => {
+                    const items = data.data;
+                    const suggestions = items.result.map((item) => ({
+                      id: item._id,
+                      label: item.phoneNumber,
+                      status: item.status,
+                    }));
+                    setData(suggestions);
+                  });
+              }
+            }}
           >
             send
           </Button>
