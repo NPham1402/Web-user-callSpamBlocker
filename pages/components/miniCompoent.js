@@ -5,7 +5,7 @@ export default function MiniCompoent(props) {
   return (
     <>
       {props.types == "line" && (
-        <div className="md:flex md:flex-row md:justify-between  text-center ">
+        <div className="md:flex md:flex-row md:justify-between   ">
           <p className="md:text-[25px] text-[20px] md:w-[200px]  text-white ml-[5px] font-semibold my-auto ">
             {props.headerLine}
           </p>

@@ -53,9 +53,7 @@ function Detail() {
             src={urlImg}
             className="my-auto"
           />
-          <div className="flex flex-row border-5 border-black rounded-[6px] my-auto  w-[500px] ">
-            <AutoCompleteComponent />
-          </div>
+          <AutoCompleteComponent />
           <p className="text-[#4BE1BA]">adcd</p>
         </div>
         <p className=" font-bold md:text-[50px] text-[25px] text-center text-[#221f49] ">
@@ -72,7 +70,7 @@ function Detail() {
 
               <MiniCompoent
                 types="line"
-                headerLine="Status:"
+                headerLine="Status Phone:"
                 contents={infor.status}
               />
               <MiniCompoent
