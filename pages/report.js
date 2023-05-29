@@ -9,6 +9,7 @@ import Image from "next/image";
 import dayjs from "dayjs";
 import AutoCompleteComponent from "./components/AutoComplete";
 import {
+  Alert,
   Autocomplete,
   Box,
   Button,
@@ -27,8 +28,7 @@ function Detail() {
 
   const [storeData, setStroreData] = useState();
   const [reason, setReason] = useState();
-  const [checked, setChecked] = useState();
-
+  const [open, setOpen] = React.useState(true);
   const fetchData = (value) => {
     if (value === "") value = 0;
 
@@ -86,6 +86,7 @@ function Detail() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href={"../public/logo"} />
       </Head>
+
       <main className="relative">
         <div className="w-100 pl-[10px] pt-[2px] flex flex-row justify-between h-[62px] bg-[#4BE1BA]">
           <Image
@@ -103,10 +104,10 @@ function Detail() {
 
           <p className="text-[#4BE1BA]">adcd</p>
         </div>
-        <p className=" font-bold text-[50px] text-center text-[#221f49] ">
+        <p className=" font-bold  text-[25px] md:text-[50px]   text-center text-[#221f49] ">
           Unban a phone number
         </p>
-        <div className=" mx-auto border-5 border-black rounded-[6px] my-auto  w-[500px] ">
+        <div className=" mx-auto border-5 border-black rounded-[6px] m-auto w-[300px] md:w-[500px] ">
           <p className=" text-[20px] mb-[10px] text-[#221f49] ">
             Select your phone:
           </p>
@@ -135,9 +136,9 @@ function Detail() {
               }
             }}
             getOptionLabel={(option) => option.label}
-            sx={{ width: "500px", background: "white" }}
             renderInput={(params) => (
               <TextField
+                className="w-[300px] md:w-[500px]"
                 variant="filled"
                 {...params}
                 label="Search phone number..."
@@ -146,18 +147,18 @@ function Detail() {
           />
           <p className=" text-[20px] mb-[10px] text-[#221f49] ">Reason:</p>
           <TextField
-            sx={{ width: "500px" }}
+            className="w-[300px] md:w-[500px]"
             onChange={(e) => setReason(e.target.value)}
             placeholder="Enter your reason"
           />
           <div className="flex flex-grow">
             <Checkbox defaultChecked />
-            <p className="my-auto">
+            <p className="my-auto text-[10px] md:text-[20px]">
               I promise my phone number will not be spam.
             </p>
           </div>
           <Button
-            style={{ width: "100%", color: "#221f49" }}
+            className="w-[300px] md:w-[500px] text-sky-400"
             variant="contained"
             onClick={() => {
               if (storeData && reason) {
@@ -167,23 +168,19 @@ function Detail() {
                       storeData.label +
                       "/unban",
                     {
+                      reason: reason,
+                    },
+                    {
                       headers: {
                         authorization: "spambl0ckerAuthorization2k1rbyp0wer",
                       },
-                      data: {
-                        reason: reason,
-                      },
                     }
                   )
-                  .then((data) => {
-                    const items = data.data;
-                    const suggestions = items.result.map((item) => ({
-                      id: item._id,
-                      label: item.phoneNumber,
-                      status: item.status,
-                    }));
-                    setData(suggestions);
-                  });
+                  .finally(() =>
+                    router.push({
+                      pathname: "/",
+                    })
+                  );
               }
             }}
           >

@@ -75,9 +75,9 @@ function AutoCompleteComponent(props) {
         }
       }}
       getOptionLabel={(option) => option.label}
-      sx={{ width: "500px", background: "white" }}
       renderInput={(params) => (
         <TextField
+          className="md:w-[500px] bg-white w-[300px] "
           variant="filled"
           {...params}
           label="Search phone number..."

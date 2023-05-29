@@ -57,7 +57,7 @@ function Detail() {
           </div>
           <p className="text-[#4BE1BA]">adcd</p>
         </div>
-        <p className=" font-bold text-[50px] text-center text-[#221f49] ">
+        <p className=" font-bold md:text-[50px] text-[25px] text-center text-[#221f49] ">
           About this number
         </p>
 
@@ -81,7 +81,7 @@ function Detail() {
                 contents={infor.reportList.length + " report"}
               />
             </div>
-            <div className="w-[98%]  pl-[5px] flex flex-row  ">
+            <div className="w-[98%]  pl-[5px] flex flex-row flex-wrap justify-center   ">
               <MiniCompoent
                 types="noti"
                 headerLine="Provider:"
@@ -98,7 +98,7 @@ function Detail() {
                 contents={infor.region.regionCode}
               />
             </div>
-            <p className="font-medium text-[50px] text-center text-[#221f49]  pt-[25px]">
+            <p className="font-medium md:text-[50px] text-[25px] text-center text-[#221f49]  pt-[25px]">
               Report
             </p>
             <div className="flex flex-row flex-wrap justify-center">
@@ -118,7 +118,7 @@ function Detail() {
             <CircularProgress />
           </div>
         )}
-        <p className="font-medium text-[50px] text-center text-[#221f49]  pt-[25px]">
+        <p className="font-medium md:text-[50px] text-[25px] text-center text-[#221f49]  pt-[25px]">
           The suggest phone
         </p>
         <div className="flex flex-row flex-wrap justify-center">

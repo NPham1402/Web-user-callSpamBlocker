@@ -11,8 +11,27 @@ import AutoCompleteComponent from "./components/AutoComplete";
 import Top50Component from "./components/Top50Component";
 import News from "./components/News";
 
-
 export default function Home() {
+  const [showButton, setShowButton] = useState(false);
+
+  useEffect(() => {
+    window.addEventListener("scroll", () => {
+      if (window.pageYOffset > 300) {
+        setShowButton(true);
+      } else {
+        setShowButton(false);
+      }
+    });
+  }, []);
+
+  // This function will scroll the window to the top
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth", // for smoothly scrolling
+    });
+  };
+
   return (
     <>
       <Head>
@@ -64,16 +83,24 @@ export default function Home() {
             <p>Some contents...</p>
             <p>Some contents...</p>
           </Drawer> */}
-          <p className="text-center leading-none font-Raleway font-semibold text-[35px] text-[#FFF8F8] ">
+          <p className="text-center leading-none font-Raleway font-semibold md:text-[35px] text-[25px]  text-[#FFF8F8] ">
             CheckCallSpammer: Protecting Your Mobile Phone from Nuisance Calls
             and Scams
           </p>
-          <div className=" rounded-[6px] text-center   w-[500px]  mx-auto mt-[15px] bg-white">
+          <div className=" rounded-[6px] text-center md:w-[500px] w-[300px] mx-auto mt-[15px] bg-white">
             <AutoCompleteComponent />
           </div>
         </div>
+        {showButton && (
+          <button
+            onClick={scrollToTop}
+            className="fixed bottom-2 text-[25px] right-2 w-[50px] h-[50px]  border-[1px] border-white rounded-2xl border text-white bg-[#4BE1BA]"
+          >
+            &#8679;
+          </button>
+        )}
         <div className="font px-[50px]">
-          <p className="font-medium text-[50px] text-center text-[#221f49]  pt-[25px]">
+          <p className="font-medium md:text-[50px] text-[25px] text-center text-[#221f49]  pt-[25px]">
             About for Project
           </p>
           <p className="font-medium text-[#221f49] text-[30px]  pt-[25px]">
@@ -153,16 +180,17 @@ export default function Home() {
             can also improve their accuracy, so you can have peace of mind
             knowing that you are protected from unwanted calls and scams.
           </p>
-          <p className="font-medium text-[50px] text-center text-[#221f49]  pt-[25px]">
+          <p className="font-medium md:text-[50px] text-[25px] text-center text-[#221f49]  pt-[25px]">
             The newest number phone spam
           </p>
           <div className="flex flex-row flex-wrap justify-center">
             <Top50Component />
           </div>
-              <p className="font-medium text-[50px] text-center text-[#221f49]  pt-[25px]">
-the News         </p>
+          <p className="font-medium md:text-[50px] text-[25px] text-center text-[#221f49]  pt-[25px]">
+            The News
+          </p>
           <div className="flex flex-row flex-wrap justify-center">
-          <News/>
+            <News />
           </div>
         </div>
       </main>
