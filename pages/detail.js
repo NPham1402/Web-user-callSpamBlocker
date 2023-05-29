@@ -10,6 +10,7 @@ import dayjs from "dayjs";
 import AutoCompleteComponent from "./components/AutoComplete";
 import { CircularProgress } from "@mui/material";
 import Top50Component from "./components/Top50Component";
+import News from "./components/News";
 function Detail() {
   const router = useRouter();
   const [infor, setInfor] = useState();
@@ -60,7 +61,6 @@ function Detail() {
         <p className=" font-bold md:text-[50px] text-[25px] text-center text-[#221f49] ">
           About this number
         </p>
-
         {loading === false ? (
           <div>
             <div className="w-[98%] my-[15px] rounded-[16px]  bg-[#bfc3c9]  mx-auto">
@@ -123,6 +123,12 @@ function Detail() {
         </p>
         <div className="flex flex-row flex-wrap justify-center">
           <Top50Component />
+        </div>{" "}
+        <p className="font-medium md:text-[50px] text-[25px] text-center text-[#221f49]  pt-[25px]">
+          The News
+        </p>
+        <div className="flex flex-row flex-wrap justify-center">
+          <News />
         </div>
       </main>
       <MiniCompoent types="footer" />
