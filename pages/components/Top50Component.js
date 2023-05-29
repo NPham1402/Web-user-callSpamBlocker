@@ -18,15 +18,18 @@ export default function Top50Component() {
 
   return (
     loading === false &&
-    data.map((value) => (
-      <NumberPhone
-        zone={"+84 "}
-        country={"Viet Nam"}
-        numberPhone={value.phoneNumber}
-        provider={value.reportList.length + " reports"}
-        key={value._id}
-        id={value._id}
-      />
-    ))
+    data.map(
+      (value, index) =>
+        index < 6 && (
+          <NumberPhone
+            zone={"+84 "}
+            country={"Viet Nam"}
+            numberPhone={value.phoneNumber}
+            provider={value.reportList.length + " reports"}
+            key={value._id}
+            id={value._id}
+          />
+        )
+    )
   );
 }
