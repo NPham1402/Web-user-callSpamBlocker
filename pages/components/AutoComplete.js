@@ -5,7 +5,7 @@ import React, { useState } from "react";
 import { FcSearch } from "react-icons/fc";
 
 function AutoCompleteComponent(props) {
-  const [data, setData] = useState(null);
+  const [data, setData] = useState({ id: 1, label: "loading" });
 
   const router = useRouter();
 

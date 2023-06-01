@@ -54,6 +54,7 @@ function Detail() {
             className="my-auto"
           />
           <AutoCompleteComponent />
+          <p className="text-[#4BE1BA]">dghu</p>
         </div>
         <p className=" font-bold md:text-[50px] text-[25px] text-center text-[#221f49] ">
           About this number
