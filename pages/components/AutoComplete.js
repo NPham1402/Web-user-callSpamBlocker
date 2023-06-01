@@ -45,6 +45,7 @@ function AutoCompleteComponent(props) {
   return (
     <Autocomplete
       options={data}
+      className="min-w-[300px]"
       renderOption={(props, option) => (
         <Box
           component="li"
@@ -77,7 +78,6 @@ function AutoCompleteComponent(props) {
       getOptionLabel={(option) => option.label}
       renderInput={(params) => (
         <TextField
-        
           className="md:w-[500px] bg-white min-w-[300px] w-[300px] "
           variant="filled"
           {...params}
