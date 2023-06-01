@@ -53,7 +53,7 @@ function Detail() {
             src={urlImg}
             className="my-auto"
           />
-          <div className=" rounded-[6px] text-center md:w-[500px] w-[300px] mx-auto mt-[15px] bg-white">
+          <div className=" rounded-[6px] text-center md:w-[500px] w-[300px] mx-auto  bg-white">
             <AutoCompleteComponent />
           </div>
           <p className="text-[#4BE1BA]">dghu</p>
