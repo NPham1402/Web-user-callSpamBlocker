@@ -54,7 +54,7 @@ export default function MiniCompoent(props) {
       {props.types === "comments" && (
         <div
           key={props.key}
-          className="w-[45%] min-w-[300px]  md:h-[183.5px] h-[100px] mx-[10px] mt-[30px] border-[1px] border-white rounded-2xl border  bg-[#bfc3c9]"
+          className="w-[30%] min-w-[300px]  md:h-[203.5px] h-[100px] mx-[10px] mt-[30px] border-[1px] border-white rounded-2xl border  bg-[#bfc3c9]"
         >
           <div className="md:mx-[30px] my-[10px] text-center ">
             <p className="pt-[2px]  text-[#004948] font-semiboldtext-[14px] md:text-[30px]  ">
