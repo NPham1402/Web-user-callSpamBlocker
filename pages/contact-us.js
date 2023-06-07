@@ -130,7 +130,9 @@ export default function Privacypolicy() {
                   },
                 })
                 .then((e) => {
-                  console.log(e.data);
+                  router.push({
+                    pathname: "/",
+                  });
                 });
             }}
           >

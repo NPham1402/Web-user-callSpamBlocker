@@ -162,26 +162,25 @@ function Detail() {
             variant="contained"
             onClick={() => {
               if (storeData && reason) {
-                console.log(storeData);
-                // axios
-                //   .patch(
-                //     "https://api.call-spam-blocker.xyz/phone-numbers/" +
-                //       storeData.label +
-                //       "/unban",
-                //     {
-                //       reason: reason,
-                //     },
-                //     {
-                //       headers: {
-                //         authorization: "spambl0ckerAuthorization2k1rbyp0wer",
-                //       },
-                //     }
-                //   )
-                //   .finally(() =>
-                //     router.push({
-                //       pathname: "/",
-                //     })
-                //   );
+                axios
+                  .patch(
+                    "https://api.call-spam-blocker.xyz/phone-numbers/" +
+                      storeData.label +
+                      "/unban",
+                    {
+                      reason: reason,
+                    },
+                    {
+                      headers: {
+                        authorization: "spambl0ckerAuthorization2k1rbyp0wer",
+                      },
+                    }
+                  )
+                  .finally(() =>
+                    router.push({
+                      pathname: "/",
+                    })
+                  );
               }
             }}
           >
