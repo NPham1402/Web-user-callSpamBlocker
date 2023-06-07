@@ -162,6 +162,7 @@ function Detail() {
             variant="contained"
             onClick={() => {
               if (storeData && reason) {
+                console.log(storeData);
                 axios
                   .patch(
                     "https://api.call-spam-blocker.xyz/phone-numbers/" +
