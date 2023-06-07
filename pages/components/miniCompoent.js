@@ -1,12 +1,13 @@
 import { ClockCircleOutlined } from "@ant-design/icons";
+import Link from "next/link";
 import React from "react";
 
 export default function MiniCompoent(props) {
   return (
     <>
       {props.types == "line" && (
-        <div className="md:flex md:flex-row md:justify-between   ">
-          <p className="md:text-[25px] text-[20px] md:w-[200px]  text-white ml-[5px] font-semibold my-auto ">
+        <div className="md:flex md:flex-row md:justify-between text-center md:h-auto h-[70px]   ">
+          <p className="md:text-[25px] text-[20px] md:w-[200px] text-white ml-[5px] font-semibold my-auto ">
             {props.headerLine}
           </p>
           <p
@@ -22,24 +23,24 @@ export default function MiniCompoent(props) {
       {props.types === "footer" && (
         <footer className="bg-gray-800 mt-[50px] text-white py-4">
           <div className="container mx-auto">
-            <p className="text-center text-sm">&copy; 2023 Nguyen Pham Do</p>
+            <p className="text-center text-sm">&copy; 2023 Call Spam Blocker</p>
             <div className="flex justify-center">
-              <a href="#" className="text-white mx-2">
+              <Link href="/privacy-policy" className="text-white mx-2">
                 Privacy Policy
-              </a>
-              <a href="#" className="text-white mx-2">
-                Terms of Use
-              </a>
-              <a href="#" className="text-white mx-2">
+              </Link>
+              <Link href="/about-us" className="text-white mx-2">
+                About us
+              </Link>
+              <Link href="/contact-us" className="text-white mx-2">
                 Contact Us
-              </a>
+              </Link>
             </div>
           </div>
         </footer>
       )}
 
       {props.types === "noti" && (
-        <div className="bg-[#bfc3c9] md:m-auto mt-[10px] rounded-[12px]  w-[300px] md:w-[400px] md:h-[95px] h-[70px]">
+        <div className="bg-[#bfc3c9]  mt-[10px] rounded-[12px] mx-[5px]  w-[300px] md:w-[400px] md:h-[95px] h-[70px]">
           <div className=" h-full px-auto">
             <p className="md:text-[30px] text-[20px] font-bold  text-center ">
               {" "}
@@ -63,7 +64,7 @@ export default function MiniCompoent(props) {
             <p className="pt-[2px]  text-[#004948] font-semiboldtext-[14px] md:text-[30px]  ">
               Date: {props.hourse}
             </p>
-            <p className=" text-[14px] line-clamp-1 md:text-[25px] line-clamp-2  text-[#004948] m-[10px] font-bold">
+            <p className=" text-[14px] line-clamp-0 md:text-[25px] line-clamp-2  text-[#004948] m-[10px] font-bold">
               {"Content: " + props.comment}
             </p>
           </div>

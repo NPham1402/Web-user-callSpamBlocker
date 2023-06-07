@@ -10,10 +10,13 @@ import urlImg from "../public/logo.png";
 import AutoCompleteComponent from "./components/AutoComplete";
 import Top50Component from "./components/Top50Component";
 import News from "./components/News";
+import { useRouter } from "next/router";
+import Link from "next/link";
+import MiniCompoent from "./components/miniCompoent";
 
 export default function Home() {
   const [showButton, setShowButton] = useState(false);
-
+  const router = useRouter();
   useEffect(() => {
     window.addEventListener("scroll", () => {
       if (window.pageYOffset > 300) {
@@ -35,7 +38,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>CallSpamBlocker</title>
+        <title> Call Spam Blocker</title>
         <meta
           name="description"
           content="CheckCallSpammer can help you to identify and block these calls, so you never have to worry about missing important calls or falling for a scam."
@@ -88,7 +91,7 @@ export default function Home() {
             <p>Some contents...</p>
           </Drawer> */}
           <p className="text-center leading-none font-Raleway font-semibold md:text-[35px] text-[25px]  text-[#FFF8F8] ">
-            CheckCallSpammer: Protecting Your Mobile Phone from Nuisance Calls
+            Call Spam Blocker: Protecting Your Mobile Phone from Nuisance Calls
             and Scams
           </p>
           <div className=" rounded-[6px] text-center md:w-[500px] w-[300px] mx-auto mt-[15px] bg-white">
@@ -184,6 +187,35 @@ export default function Home() {
             can also improve their accuracy, so you can have peace of mind
             knowing that you are protected from unwanted calls and scams.
           </p>
+          <div className="flex flex-row justify-between">
+            <p className="font-medium text-[30px] text-[#221f49]  pt-[25px]">
+              Unban your phone from banlist
+            </p>
+            <button
+              onClick={() => {
+                router.push({
+                  pathname: "/report",
+                });
+              }}
+              className="my-auto  bg-[#4BE1BA] md:w-[150px] w-[100px] font-bold h-[50px]   align-bottom  inset-x-0 bottom-0 rounded-[12px] text-[20px]"
+            >
+              Unban
+            </button>
+          </div>
+          <p className=" text-[18px] text-[#221f49]  pt-[25px] ">
+            If you find yourself in the unfortunate situation of having your
+            phone number mistakenly placed on a spam list, fear not, as there is
+            a way to rectify this error. To request an unban for your phone
+            number, you can follow a simple process. Begin by contacting your
+            phone service provider or the relevant organization responsible for
+            managing the spam list. Clearly explain the situation and provide
+            any necessary evidence to support your claim of being wrongly
+            flagged. Be patient and cooperative throughout the process, as it
+            may require some investigation and verification. With persistence
+            and a calm approach, you increase your chances of having your phone
+            number successfully removed from the spam list, allowing you to
+            regain uninterrupted communication once again.
+          </p>
           <p className="font-medium md:text-[50px] text-[25px] text-center text-[#221f49]  pt-[25px]">
             The newest number phone spam
           </p>
@@ -198,22 +230,7 @@ export default function Home() {
           </div>
         </div>
       </main>
-      <footer className="bg-gray-800 mt-[50px] text-white py-4">
-        <div className="container mx-auto">
-          <p className="text-center text-sm">&copy; 2023 Nguyen Pham Do</p>
-          <div className="flex justify-center">
-            <a href="#" className="text-white mx-2">
-              Privacy Policy
-            </a>
-            <a href="#" className="text-white mx-2">
-              Terms of Use
-            </a>
-            <a href="#" className="text-white mx-2">
-              Contact Us
-            </a>
-          </div>
-        </div>
-      </footer>
+      <MiniCompoent types="footer" />
     </>
   );
 }

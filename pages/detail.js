@@ -8,7 +8,7 @@ import urlImg from "../public/logo.png";
 import Image from "next/image";
 import dayjs from "dayjs";
 import AutoCompleteComponent from "./components/AutoComplete";
-import { CircularProgress } from "@mui/material";
+import { Chip, CircularProgress } from "@mui/material";
 import Top50Component from "./components/Top50Component";
 import News from "./components/News";
 function Detail() {
@@ -40,7 +40,7 @@ function Detail() {
         <link rel="icon" href={"../public/logo"} />
       </Head>
       <main className="relative">
-        <div className="w-100 pl-[10px] pt-[2px] flex flex-row justify-between h-[62px] bg-[#4BE1BA]">
+        <div className="w-100 md:pl-[10px] pt-[2px] flex flex-row mx-a  justify-between h-[62px] bg-[#4BE1BA]">
           <Image
             alt="logo"
             width={60}
@@ -51,12 +51,12 @@ function Detail() {
               });
             }}
             src={urlImg}
-            className="my-auto"
+            className="my-auto md:block hidden "
           />
-          <div className=" rounded-[6px] text-center md:w-[500px] w-[300px] mx-auto mt-[1px]">
+
+          <div className=" rounded-[6px]  md:w-[500px] w-[300px] mx-auto mt-[1px]">
             <AutoCompleteComponent />
           </div>
-          <p className="text-[#4BE1BA]">d</p>
         </div>
         <p className=" font-bold md:text-[50px] text-[25px] text-center text-[#221f49] ">
           About this number
@@ -73,7 +73,21 @@ function Detail() {
               <MiniCompoent
                 types="line"
                 headerLine="Status Phone:"
-                contents={infor.status}
+                contents={
+                  <Chip
+                    variant="filled"
+                    color={
+                      infor.status === "unknown"
+                        ? "secondary"
+                        : infor.status === "spammer"
+                        ? "error"
+                        : "primary"
+                    }
+                    size={"50"}
+                    style={{ marginBottom: "auto", marginTop: "auto" }}
+                    label={infor.status}
+                  />
+                }
               />
               <MiniCompoent
                 types="line"
