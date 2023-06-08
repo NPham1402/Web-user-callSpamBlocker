@@ -13,7 +13,7 @@ import News from "./components/News";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import MiniCompoent from "./components/miniCompoent";
-
+import { Analytics } from "@vercel/analytics/react";
 export default function Home() {
   const [showButton, setShowButton] = useState(false);
   const router = useRouter();
@@ -65,10 +65,11 @@ export default function Home() {
         />
       </Head>
       <main className="relative">
+        <Analytics />
         <div className="w-100 h-[500px] ml-auto bg-[#4BE1BA]">
           {/* <Button
             type="primary"
-            className="w-[80px] p-0 h-[80px]"
+              className="w-[80px] p-0 h-[80px]"
             onClick={showDrawer}
           >
             <p className="text-[35px] text-black">≡</p>
