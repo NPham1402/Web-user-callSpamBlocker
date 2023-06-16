@@ -13,6 +13,9 @@ import News from "./components/News";
 import { useRouter } from "next/router";
 import MiniCompoent from "./components/miniCompoent";
 import { Input } from "postcss";
+import { child, get, ref, set } from "firebase/database";
+import { database } from "./components/firebase";
+import dayjs from "dayjs";
 
 export default function Privacypolicy() {
   const [showButton, setShowButton] = useState(false);
@@ -120,16 +123,35 @@ export default function Privacypolicy() {
           <form
             onSubmit={(e) => {
               e.preventDefault();
-              axios
-                .get("/api/slackPost", {
-                  headers: {
-                    name: e.target.name.value,
-                    reson: e.target.reson.value,
-                    phone: e.target.phone.value,
-                    email: e.target.email.value,
-                  },
+              const dbref = ref(database);
+              get(child(dbref, "Contact"))
+                .then((snapshot) => {
+                  if (snapshot.exists()) {
+                    let data = snapshot.val();
+                    data.push({
+                      name: e.target.name.value,
+                      reson: e.target.reson.value,
+                      phone: e.target.phone.value,
+                      email: e.target.email.value,
+                      time: dayjs().format("DD/MM/YYYY"),
+                    });
+                    set(ref(database, "Contact"), data);
+                  } else {
+                    set(ref(database, "Contact"), [
+                      {
+                        name: e.target.name.value,
+                        reson: e.target.reson.value,
+                        phone: e.target.phone.value,
+                        email: e.target.email.value,
+                        time: dayjs().format("DD/MM/YYYY"),
+                      },
+                    ]);
+                  }
                 })
-                .then((e) => {
+                .catch((error) => {
+                  console.error(error);
+                })
+                .finally(() => {
                   router.push({
                     pathname: "/",
                   });

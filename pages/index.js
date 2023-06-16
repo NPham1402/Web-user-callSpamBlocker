@@ -3,9 +3,9 @@ import Image from "next/image";
 import { Inter } from "@next/font/google";
 import styles from "../styles/Home.module.css";
 import NumberPhone from "./components/numberPhone";
-import { useEffect, useState } from "react";
-import axios from "axios";
-import { FcSearch } from "react-icons/fc";
+import { useEffect, useLayoutEffect, useState } from "react";
+import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
+import "react-circular-progressbar/dist/styles.css";
 import urlImg from "../public/logo.png";
 import AutoCompleteComponent from "./components/AutoComplete";
 import Top50Component from "./components/Top50Component";
@@ -14,9 +14,16 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 import MiniCompoent from "./components/miniCompoent";
 import { Analytics } from "@vercel/analytics/react";
-export default function Home() {
+import { databaseCallSPamBlocker } from "./components/firebase";
+import { child, get, ref } from "firebase/database";
+import Information from "./components/Information";
+export default function Home(props) {
   const [showButton, setShowButton] = useState(false);
+
+  const [data, setData] = useState(null);
+
   const router = useRouter();
+
   useEffect(() => {
     window.addEventListener("scroll", () => {
       if (window.pageYOffset > 300) {
@@ -34,6 +41,34 @@ export default function Home() {
       behavior: "smooth", // for smoothly scrolling
     });
   };
+
+  const dbRef = ref(databaseCallSPamBlocker);
+
+  useEffect(() => {
+    get(child(dbRef, "Total"))
+      .then((snapshot) => {
+        if (snapshot.exists()) {
+          const valueTotal = snapshot.val();
+          const totalNumber =
+            valueTotal.TotalPotential +
+            valueTotal.TotalSpammer +
+            valueTotal.TotalUnknow;
+
+          setData({
+            ...valueTotal,
+            TotalNumber: totalNumber,
+            percentSpammer: (valueTotal.TotalSpammer / totalNumber) * 100,
+            percentPotential: (valueTotal.TotalPotential / totalNumber) * 100,
+            percentUnknow: (valueTotal.TotalUnknow / totalNumber) * 100,
+          });
+        } else {
+          console.log("No data available");
+        }
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }, []);
 
   return (
     <>
@@ -217,6 +252,58 @@ export default function Home() {
             number successfully removed from the spam list, allowing you to
             regain uninterrupted communication once again.
           </p>
+          <p className="font-medium md:text-[50px] text-[25px] text-center text-[#221f49]  pt-[25px]">
+            Out Data
+          </p>
+          {data && (
+            <div>
+              <div className="flex justify-center flex-row">
+                <div className="w-[200px] h-[300px] ml-5 border-[1px] rounded-xl bg-[#FFA07A]">
+                  <CircularProgressbar
+                    value={data.percentSpammer}
+                    text={data.percentSpammer.toFixed(2) + "%"}
+                    className="p-3 pt-10"
+                    styles={buildStyles({
+                      pathColor: `red`,
+                      textColor: "red",
+                    })}
+                  />
+                  <p className="text-[20px] text-center text-[red] font-bold">
+                    Percent Spammer
+                  </p>
+                </div>
+                <div className="w-[200px] h-[300px] ml-10 border-[1px] rounded-xl bg-[#AFEEEE]">
+                  <CircularProgressbar
+                    value={data.percentPotential}
+                    text={data.percentPotential.toFixed(2) + "%"}
+                    className="p-3 pt-10"
+                    styles={buildStyles({
+                      pathColor: `#1E90FF`,
+                      textColor: "#1E90FF",
+                    })}
+                  />
+                  <p className="text-[20px] text-center text-[#1E90FF] font-bold">
+                    Percent Potential
+                  </p>
+                </div>
+                <div className="w-[200px] h-[300px] ml-10 border-[1px] rounded-xl bg-[#E6E6FA]">
+                  <CircularProgressbar
+                    value={data.percentUnknow}
+                    text={data.percentUnknow.toFixed(2) + "%"}
+                    className="p-3 pt-10"
+                    styles={buildStyles({
+                      pathColor: `gray`,
+                      textColor: "gray",
+                    })}
+                  />
+                  <p className="text-[20px] text-center text-[gray] font-bold">
+                    Percent spammer
+                  </p>
+                </div>
+              </div>
+              <Information data={data} dbref={dbRef} />
+            </div>
+          )}
           <p className="font-medium md:text-[50px] text-[25px] text-center text-[#221f49]  pt-[25px]">
             The newest number phone spam
           </p>
