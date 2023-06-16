@@ -82,6 +82,10 @@ export default function Home(props) {
           content="Block the spam call and optimize your life - CallSpamBlocker"
         />
         <meta
+          property="og:image"
+          content="https://www.callspamblocker.online/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Flogo.272f7cfe.png&w=384&q=75"
+        ></meta>
+        <meta
           property="og:description"
           content="CheckCallSpammer can help you to identify and block these calls, so you never have to worry about missing important calls or falling for a scam."
         />
