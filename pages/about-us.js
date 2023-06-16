@@ -40,7 +40,7 @@ export default function Privacypolicy() {
         <title>CallSpamBlocker</title>
         <meta
           name="description"
-          content="CheckCallSpammer can help you to identify and block these calls, so you never have to worry about missing important calls or falling for a scam."
+          content="Call Spam blocker can help you to identify and block these calls, so you never have to worry about missing important calls or falling for a scam."
         />
         <meta
           property="og:title"
@@ -48,7 +48,7 @@ export default function Privacypolicy() {
         />
         <meta
           property="og:description"
-          content="CheckCallSpammer can help you to identify and block these calls, so you never have to worry about missing important calls or falling for a scam."
+          content="Call Spam blocker can help you to identify and block these calls, so you never have to worry about missing important calls or falling for a scam."
         />
         <meta
           property="og:url"
@@ -125,8 +125,8 @@ export default function Privacypolicy() {
               1.1 Personal Information:
             </p>
             When you visit our website or use our services, we may collect
-            personal information that you voluntarily provide, such as your
-            name, email address, and phone number. We collect this information
+            personal information that you voluntarily provide like your phone ID.
+            We collect this information
             only when you choose to submit it to us through our contact forms or
             other interactive features.
           </p>

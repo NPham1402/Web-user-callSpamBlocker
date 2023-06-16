@@ -40,7 +40,7 @@ export default function Privacypolicy() {
         <title>CallSpamBlocker</title>
         <meta
           name="description"
-          content="CheckCallSpammer can help you to identify and block these calls, so you never have to worry about missing important calls or falling for a scam."
+          content="Call Spam blocker can help you to identify and block these calls, so you never have to worry about missing important calls or falling for a scam."
         />
         <meta
           property="og:title"
@@ -48,7 +48,7 @@ export default function Privacypolicy() {
         />
         <meta
           property="og:description"
-          content="CheckCallSpammer can help you to identify and block these calls, so you never have to worry about missing important calls or falling for a scam."
+          content="Call Spam blocker can help you to identify and block these calls, so you never have to worry about missing important calls or falling for a scam."
         />
         <meta
           property="og:url"

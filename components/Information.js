@@ -52,31 +52,31 @@ function Information(props) {
           <p className="text-[30px] font-bold">
             {formatCompactNumber(props.data.TotalReport)}
           </p>
-          <p className="text-[20px] font-semibold">Total Report</p>
+          <p className="text-[20px] font-semibold">Total Reports</p>
         </div>
         <div className="text-center">
           <p className="text-[30px] font-bold">
             {formatCompactNumber(data.reportInMonth)}
           </p>
-          <p className="text-[20px] font-semibold">Report in This Month</p>
+          <p className="text-[20px] font-semibold">Reports in this month</p>
         </div>
         <div className="text-center">
           <p className="text-[30px] font-bold">
             {formatCompactNumber(props.data.TotalSearch)}
           </p>
-          <p className="text-[20px] font-semibold">Total Report</p>
+          <p className="text-[20px] font-semibold">Total Reports</p>
         </div>
         <div className="text-center">
           <p className="text-[30px] font-bold">
             {formatCompactNumber(data.searchInThisMonth)}
           </p>
-          <p className="text-[20px] font-semibold">Search in This Month</p>
+          <p className="text-[20px] font-semibold">Searching in this Month</p>
         </div>
         <div className="text-center">
           <p className="text-[30px] font-bold">
             {formatCompactNumber(props.data.TotalSpammer)}
           </p>
-          <p className="text-[20px] font-semibold">Total Spammer</p>
+          <p className="text-[20px] font-semibold">Total Spammers</p>
         </div>
       </div>
     )

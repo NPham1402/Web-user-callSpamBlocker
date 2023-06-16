@@ -75,7 +75,7 @@ export default function Home(props) {
         <title> Call Spam Blocker</title>
         <meta
           name="description"
-          content="CheckCallSpammer can help you to identify and block these calls, so you never have to worry about missing important calls or falling for a scam."
+          content="Call Spam blocker can help you to identify and block these calls, so you never have to worry about missing important calls or falling for a scam."
         />
         <meta
           property="og:title"
@@ -87,7 +87,7 @@ export default function Home(props) {
         ></meta>
         <meta
           property="og:description"
-          content="CheckCallSpammer can help you to identify and block these calls, so you never have to worry about missing important calls or falling for a scam."
+          content="Call Spam blocker can help you to identify and block these calls, so you never have to worry about missing important calls or falling for a scam."
         />
         <meta
           property="og:url"
@@ -154,7 +154,7 @@ export default function Home(props) {
             unknown numbers?
           </p>
           <p className=" text-[18px] text-[#221f49]">
-            CheckCallSpammer can help you to identify and block these calls, so
+            Call Spam blocker can help you to identify and block these calls, so
             you never have to worry about missing important calls or falling for
             a scam.
           </p>
@@ -162,7 +162,7 @@ export default function Home(props) {
             Protect Yourself from Scams
           </p>
           <p className=" text-[18px]  text-[#221f49]  ">
-            CheckCallSpammer are designed to help you manage and block unwanted
+            Call Spam blocker are designed to help you manage and block unwanted
             calls. They work by using a database of known scam numbers, as well
             as user-generated feedback, to identify and block calls that are
             likely to be unwanted. Some apps also have features like call
@@ -185,7 +185,7 @@ export default function Home(props) {
             Easily Manage Your Calls
           </p>
           <p className=" text-[18px] text-[#221f49]  ">
-            In addition to protecting you from scams,CheckCallSpammer can also
+            In addition to protecting you from scams,Call Spam blocker can also
             help you to manage your calls more effectively. With features like
             call blocking and call identification, you can control which calls
             you receive, and who you receive them from. This means that you can
@@ -198,7 +198,7 @@ export default function Home(props) {
           </p>
           <p className=" text-[18px] text-[#221f49]  ">
             Nuisance calls can be annoying, and they can also be time-consuming.
-            CheckCallSpammer can help you to avoid nuisance calls by blocking
+            Call Spam blocker can help you to avoid nuisance calls by blocking
             calls from numbers that have been reported as unwanted. This means
             that you can enjoy your mobile phone without having to worry about
             being disturbed by unwanted calls.
@@ -207,7 +207,7 @@ export default function Home(props) {
             User-Generated Feedback
           </p>
           <p className=" text-[18px] text-[#221f49]  ">
-            One of the key benefits ofCheckCallSpammer is that they rely on
+            One of the key benefits ofCall Spam blocker is that they rely on
             user-generated feedback to improve their accuracy. This means that
             the more people who use the app, the better it will become at
             identifying and blocking unwanted calls. If you receive a call from
@@ -219,7 +219,7 @@ export default function Home(props) {
             Conclusion
           </p>
           <p className=" text-[18px] text-[#221f49]  ">
-            CheckCallSpammer are a useful tool for protecting your mobile phone
+            Call Spam blocker are a useful tool for protecting your mobile phone
             from unwanted calls and scams. With features like call blocking and
             call identification, you can manage your calls more effectively and
             avoid falling for scams. With user-generated feedback, these apps
@@ -256,7 +256,7 @@ export default function Home(props) {
             regain uninterrupted communication once again.
           </p>
           <p className="font-medium md:text-[50px] text-[25px] text-center text-[#221f49]  pt-[25px]">
-            Out Data
+            Our Call Spam Blocker Data
           </p>
           {data && (
             <div>
@@ -272,7 +272,7 @@ export default function Home(props) {
                     })}
                   />
                   <p className="text-[20px] text-center text-[red] font-bold">
-                    Percent Spammer
+                    Percentage of Spammer
                   </p>
                 </div>
                 <div className="w-[200px] h-[300px] ml-10 border-[1px] rounded-xl bg-[#AFEEEE]">
@@ -286,7 +286,7 @@ export default function Home(props) {
                     })}
                   />
                   <p className="text-[20px] text-center text-[#1E90FF] font-bold">
-                    Percent Potential
+                    Percentage of Potential
                   </p>
                 </div>
                 <div className="w-[200px] h-[300px] ml-10 border-[1px] rounded-xl bg-[#E6E6FA]">
@@ -300,7 +300,7 @@ export default function Home(props) {
                     })}
                   />
                   <p className="text-[20px] text-center text-[gray] font-bold">
-                    Percent spammer
+                    Percentage of Unknowns
                   </p>
                 </div>
               </div>
@@ -308,13 +308,13 @@ export default function Home(props) {
             </div>
           )}
           <p className="font-medium md:text-[50px] text-[25px] text-center text-[#221f49]  pt-[25px]">
-            The newest number phone spam
+            The newest spam number
           </p>
           <div className="flex flex-row flex-wrap justify-center">
             <Top50Component />
           </div>
           <p className="font-medium md:text-[50px] text-[25px] text-center text-[#221f49]  pt-[25px]">
-            The News
+            News
           </p>
           <div className="flex flex-row flex-wrap justify-center">
             <News />
