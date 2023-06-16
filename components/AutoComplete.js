@@ -81,7 +81,7 @@ function AutoCompleteComponent(props) {
           className="md:w-[500px] bg-white min-w-[300px] w-[300px] "
           variant="filled"
           {...params}
-          label="Search for your phone number..."
+          label="Search phone number..."
         />
       )}
     />

@@ -245,7 +245,7 @@ function Detail() {
           <Top50Component />
         </div>
         <p className="font-medium md:text-[50px] text-[25px] text-center text-[#221f49]  pt-[25px]">
-          The News
+          News
         </p>
         <div className="flex flex-row flex-wrap justify-center">
           <News />

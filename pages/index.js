@@ -308,7 +308,7 @@ export default function Home(props) {
             </div>
           )}
           <p className="font-medium md:text-[50px] text-[25px] text-center text-[#221f49]  pt-[25px]">
-            The newest spam number
+            The newest spam numbers
           </p>
           <div className="flex flex-row flex-wrap justify-center">
             <Top50Component />

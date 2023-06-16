@@ -147,7 +147,7 @@ function Detail() {
                 className="w-[300px] md:w-[500px]"
                 variant="filled"
                 {...params}
-                label="Search phone number..."
+                label="Search for your phone number..."
               />
             )}
           />
