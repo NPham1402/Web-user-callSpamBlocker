@@ -1,4 +1,5 @@
 import { ClockCircleOutlined } from "@ant-design/icons";
+import { Tooltip } from "@mui/material";
 import Link from "next/link";
 import React from "react";
 
@@ -71,7 +72,12 @@ export default function MiniCompoent(props) {
         </div>
       )}
       {props.types === "comments" && (
-        <div className="md:w-[30%] relative w-[80%] min-w-[300px]  md:h-[230.5px] h-[140px] mx-[10px] mt-[30px] border-[1px] border-white rounded-2xl border  bg-[#bfc3c9]">
+        <div
+          className={
+            "md:w-[30%] relative w-[80%] min-w-[300px]  md:h-[170.5px] h-[140px] mx-[10px] mt-[30px] border-[1px] border-white rounded-2xl border  bg-[#bfc3c9]"
+          }
+          key={props.key}
+        >
           <div className=" w-[50px] h-[50px] absolute top-[30%] left-0 right-0   rounded-full"></div>
           <div className="md:mx-[30px] my-[10px] text-center ">
             <p className="pt-[2px]  text-[#004948] font-semiboldtext-[14px] md:text-[30px]  ">
@@ -80,9 +86,11 @@ export default function MiniCompoent(props) {
             <p className="pt-[2px]  text-[#004948] font-semiboldtext-[14px] md:text-[30px]  ">
               Date: {props.hourse}
             </p>
-            <p className=" text-[14px] line-clamp-0 md:text-[25px] line-clamp-2  text-[#004948] m-[10px] font-bold">
-              {"Content: " + props.comment}
-            </p>
+            <Tooltip title={props.comment}>
+              <p className=" text-[14px] line-clamp-1 cursor-pointer md:text-[25px] text-[#004948] m-[10px] font-bold">
+                {"Content: " + props.comment}
+              </p>
+            </Tooltip>
           </div>
         </div>
       )}

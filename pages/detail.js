@@ -3,14 +3,14 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 import { FcSearch } from "react-icons/fc";
-import MiniCompoent from "./components/miniCompoent";
+import MiniCompoent from "../components/miniCompoent";
 import urlImg from "../public/logo.png";
 import Image from "next/image";
 import dayjs from "dayjs";
-import AutoCompleteComponent from "./components/AutoComplete";
+import AutoCompleteComponent from "../components/AutoComplete";
 import { Chip, CircularProgress } from "@mui/material";
-import Top50Component from "./components/Top50Component";
-import News from "./components/News";
+import Top50Component from "../components/Top50Component";
+import News from "../components/News";
 function Detail() {
   const time = new Date();
   const date = time.getDate();
@@ -26,7 +26,7 @@ function Detail() {
     setLoading(true);
     if (id) {
       axios
-        .get("http://localhost:8000/phone-numbers/detail/" + id, {
+        .get("https://api.call-spam-blocker.xyz/phone-numbers/detail/" + id, {
           headers: { authorization: "spambl0ckerAuthorization2k1rbyp0wer" },
         })
         .then((data) => {
@@ -85,6 +85,60 @@ function Detail() {
                 phone number in{" "}
                 <a className=" text-[red] font-bold">Viet Nam</a> with the code
                 is <Chip label={"+84"} color="info" size="small" />
+              </p>
+              <p className="text-[20px] ">
+                -{" "}
+                <a className="font-bold text-[#221f49] underline">
+                  {infor.phoneNumber}
+                </a>{" "}
+                can be a scam if:
+              </p>
+              <ul className="list-decimal pl-12">
+                <li className="text-[20px] ">
+                  You are asked to provide personal information or money.
+                </li>
+                <li className="text-[20px] ">
+                  The message instructs you to click on a link or call another
+                  phone number.
+                </li>
+                <li className="text-[20px] ">
+                  They pretend to be your phone company or bank.
+                </li>
+                <li className="text-[20px] ">
+                  You are being threatened or made to feel scared.
+                </li>
+                <li className="text-[20px] ">
+                  The caller wants to access and control your computer.
+                </li>
+              </ul>
+              <p className="text-[20px] ">- To protect yourself:</p>
+              <ul className="list-decimal pl-12">
+                <li className="text-[20px] ">
+                  Don&apos;t answer if you don&apos;t know who it is.
+                </li>
+                <li className="text-[20px] ">Do not send any money.</li>
+                <li className="text-[20px] ">
+                  Never share any personal or banking information about
+                  yourself.
+                </li>
+                <li className="text-[20px] ">
+                  If someone claiming to be from an organization, agency, or
+                  company, verify the number carefully from the official website
+                  of that organization, agency, or company.
+                </li>
+                <li className="text-[20px] ">Don&apos;t click on any links.</li>
+                <li className="text-[20px] ">
+                  Never allow a stranger to control your computer.
+                </li>
+                <li className="text-[20px] ">
+                  Block the calls on your mobile phone.
+                </li>
+              </ul>
+              <p className="text-[20px] ">
+                - If you are receiving calls from the number 02488899821 that
+                are a phone scam or if you are regularly harassed by the number
+                02488899821, you can report this phone number as a scam. Your
+                report will help others easily verify suspicious phone numbers.
               </p>
             </div>
             <div className="md:w-full w-[80%] mx-auto h-[200x] flex md:flex-row flex-col p-[15px] md:justify-between mt-[20px] rounded-2xl bg-[#c1c1c1]">
@@ -169,15 +223,13 @@ function Detail() {
             </p>
             <div className="flex flex-row flex-wrap justify-center">
               {infor.reportList.map((value, index) => (
-                <div key={index}>
-                  <MiniCompoent
-                    types="comments"
-                    number={value.title}
-                    hourse={dayjs(value.reportDate).format("DD-MM-YYYY")}
-                    comment={value.content}
-                    key={index}
-                  />
-                </div>
+                <MiniCompoent
+                  types="comments"
+                  number={value.title}
+                  hourse={dayjs(value.reportDate).format("DD-MM-YYYY")}
+                  comment={value.content}
+                  key={index}
+                />
               ))}
             </div>
           </div>

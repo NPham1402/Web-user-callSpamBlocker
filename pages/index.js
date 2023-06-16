@@ -2,21 +2,20 @@ import Head from "next/head";
 import Image from "next/image";
 import { Inter } from "@next/font/google";
 import styles from "../styles/Home.module.css";
-import NumberPhone from "./components/numberPhone";
 import { useEffect, useLayoutEffect, useState } from "react";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 import urlImg from "../public/logo.png";
-import AutoCompleteComponent from "./components/AutoComplete";
-import Top50Component from "./components/Top50Component";
-import News from "./components/News";
+import AutoCompleteComponent from "../components/AutoComplete";
+import Top50Component from "../components/Top50Component";
+import News from "../components/News";
 import { useRouter } from "next/router";
 import Link from "next/link";
-import MiniCompoent from "./components/miniCompoent";
+import MiniCompoent from "../components/miniCompoent";
 import { Analytics } from "@vercel/analytics/react";
-import { databaseCallSPamBlocker } from "./components/firebase";
+import { databaseCallSPamBlocker } from "../components/firebase";
 import { child, get, ref } from "firebase/database";
-import Information from "./components/Information";
+import Information from "../components/Information";
 export default function Home(props) {
   const [showButton, setShowButton] = useState(false);
 

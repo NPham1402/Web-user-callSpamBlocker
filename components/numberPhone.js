@@ -1,7 +1,7 @@
 import { ClockCircleOutlined } from "@ant-design/icons";
 import { useRouter } from "next/router";
 import React from "react";
-import detail from "../detail";
+import detail from "../pages/detail";
 
 export default function NumberPhone(props) {
   const router = useRouter();

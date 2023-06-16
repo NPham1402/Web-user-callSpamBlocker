@@ -3,11 +3,11 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 import { FcSearch } from "react-icons/fc";
-import MiniCompoent from "./components/miniCompoent";
+import MiniCompoent from "../components/miniCompoent";
 import urlImg from "../public/logo.png";
 import Image from "next/image";
 import dayjs from "dayjs";
-import AutoCompleteComponent from "./components/AutoComplete";
+import AutoCompleteComponent from "../components/AutoComplete";
 import {
   Alert,
   Autocomplete,
@@ -20,9 +20,9 @@ import {
   TextField,
   debounce,
 } from "@mui/material";
-import Top50Component from "./components/Top50Component";
+import Top50Component from "../components/Top50Component";
 import { child, get, ref, set } from "firebase/database";
-import { database } from "./components/firebase";
+import { database } from "../components/firebase";
 function Detail() {
   const [data, setData] = useState(null);
 

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import NumberPhone from "./numberPhone";
+import NumberPhone from "../components/numberPhone";
 import axios from "axios";
 
 export default function Top50Component() {

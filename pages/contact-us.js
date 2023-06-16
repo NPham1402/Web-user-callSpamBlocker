@@ -2,19 +2,19 @@ import Head from "next/head";
 import Image from "next/image";
 import { Inter } from "@next/font/google";
 import styles from "../styles/Home.module.css";
-import NumberPhone from "./components/numberPhone";
+import NumberPhone from "../components/numberPhone";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { FcSearch } from "react-icons/fc";
 import urlImg from "../public/logo.png";
-import AutoCompleteComponent from "./components/AutoComplete";
-import Top50Component from "./components/Top50Component";
-import News from "./components/News";
+import AutoCompleteComponent from "../components/AutoComplete";
+import Top50Component from "../components/Top50Component";
+import News from "../components/News";
 import { useRouter } from "next/router";
-import MiniCompoent from "./components/miniCompoent";
+import MiniCompoent from "../components/miniCompoent";
 import { Input } from "postcss";
 import { child, get, ref, set } from "firebase/database";
-import { database } from "./components/firebase";
+import { database } from "../components/firebase";
 import dayjs from "dayjs";
 
 export default function Privacypolicy() {
